@@ -2,12 +2,33 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var csv= require('HaEunMok.github.io/RTA.xlsx');
+	google.charts.load('current', {
+	  callback: function () {
+	    $.get("RTA.csv", function(csvString) {
+	      var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
-        var options = {
+	      var data = new google.visualization.arrayToDataTable(arrayData);
+
+	      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+	    });
+	  },
+	  packages: ['corechart']
+	});
+	google.charts.load('current', {
+	  callback: function () {
+	    csvString = 'Site,Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Août,Septembre,Octobre,Novembre,Décembre\nCITROEN VILLEFRANCHE CARROSSERIE,0,0,14,0,18,21,0,0,0,0,0,0\nCITROEN VILLEFRANCHE ,240,237,230,264,219,285,219,130,4,0,0,0\nNISSAN VILLEFRANCHE ,174,202,215,181,196,244,203,107,10,1,0,0';
+
+	    var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+
+	    var data = new google.visualization.arrayToDataTable(arrayData);
+	    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+	  },
+	  packages: ['corechart']
+	  /*
+	},
+	    var options = {
           title: 'Indian Language Use',
           legend: 'none',
           pieSliceText: 'label',
@@ -17,21 +38,29 @@
                     15: {offset: 0.5},
           },
         };
+	    */
+	});
+    
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var csv = require('./jquery.csv.js');
+        
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
+        
       }
     </script>
   </head>
   <body>
+  	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
     <div id="introduction" style="max-width: 800px; font-family: Verdana, Dotum; margin: auto; padding-bottom: 30px">
       <h1>The state of RTA </h1>
       <p>date: 2019-10-031</p>
       <p>name: HaEunMok (21700238)</p>
       <p>Introduction: This chart shows the state of RTA</p>
       <p>Data: The data is from e-Nara Indicators including http://www.index.go.kr/potal/main/EachDtlPageDetail.do?idx_cd=1681. </p>
-      <p>HaEunMok.github.io/data-visualization-homework3.html
-<p>
+      <p>HaEunMok.github.io/homework3.html<p>
     </div>
     <div id="chart_div" style="max-width: 1200px; margin: auto; width: 1200px; height: 500px; padding-top: 50px"></div>
   </body>
