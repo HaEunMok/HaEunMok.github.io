@@ -9,7 +9,7 @@
 
 	      var data = new google.visualization.arrayToDataTable(arrayData);
 
-	      var chart = new google.visualization.PieChart(document.getElementById('HaEunMok.github.io'))
+	      var chart = new google.visualization.PieChart(document.getElementById('container'))
           chart.draw(data);
 	    });
 	  },
@@ -25,7 +25,7 @@
 	    var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
 	    var data = new google.visualization.arrayToDataTable(arrayData);
-	    var chart = new google.visualization.PieChart(document.getElementById('HaEunMok.github.io'));
+	    var chart = new google.visualization.PieChart(document.getElementById('container'));
           chart.draw(data);
 	  },
 	  packages: ['corechart']
