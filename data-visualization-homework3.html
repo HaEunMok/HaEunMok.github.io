@@ -2,6 +2,9 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 	google.charts.load('current', {
 	  callback: function () {
 	    $.get("RTA.csv", function(csvString) {
@@ -9,7 +12,7 @@
 
 	      var data = new google.visualization.arrayToDataTable(arrayData);
 
-	      var chart = new google.visualization.PieChart(document.getElementById('chart_div'))
+	      var chart = new google.visualization.PieChart(document.getElementById('piechart_div'))
           chart.draw(data);
 	    });
 	  },
@@ -25,7 +28,7 @@
 	    var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
 	    var data = new google.visualization.arrayToDataTable(arrayData);
-	    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+	    var chart = new google.visualization.PieChart(document.getElementById('piechart_div'));
           chart.draw(data);
 	  },
 	  packages: ['corechart']
@@ -54,9 +57,7 @@
     </script>
   </head>
   <body>
-  	<script src="https://www.gstatic.com/charts/loader.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+  	
     <div id="introduction" style="max-width: 800px; font-family: Verdana, Dotum; margin: auto; padding-bottom: 30px">
       <h1>The state of RTA </h1>
       <p>date: 2019-10-031</p>
