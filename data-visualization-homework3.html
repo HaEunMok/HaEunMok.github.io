@@ -21,7 +21,8 @@
           draw(arrayData)
         });
       };
-      function draw(arrayData) {
+      google.charts.setOnLoadCallback(drawChart); 
+      function drawChart(arrayData) {
         // (3) convert arrayData into DataTable form
         // then, the remaining process is same to the previous chart drawing assignments.
         var data2 = new google.visualization.arrayToDataTable(arrayData);
