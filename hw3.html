@@ -9,7 +9,9 @@
       google.charts.load('current', {
         packages: ['corechart']
       });
-      google.charts.setOnLoadCallback(readFile); // (1) when the javascript is read, readFile function is launched first.
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(readFile);
+	    // (1) when the javascript is read, readFile function is launched first.
       // (2) file is read, and the data is saved in arrayData
       // arrayData variable is sent to the function called 'draw'
       function readFile() {
