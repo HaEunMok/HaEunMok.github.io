@@ -9,7 +9,6 @@
       google.charts.load('current', {
         packages: ['corechart']
       });
-      google.charts.setOnLoadCallback(drawChart);
       google.charts.setOnLoadCallback(readFile); // (1) when the javascript is read, readFile function is launched first.
       // (2) file is read, and the data is saved in arrayData
       // arrayData variable is sent to the function called 'draw'
@@ -28,14 +27,7 @@
         var data2 = new google.visualization.arrayToDataTable(arrayData);
         var options2 = {
           title: 'Indian Language Use',
-          legend: 'none',
-          pieSliceText: 'label',
-          slices: {  4: {offset: 0.2},
-                    12: {offset: 0.3},
-                    14: {offset: 0.4},
-                    15: {offset: 0.5},
-          },
-          colors: ['green', 'red']
+          pieHole: 0.4,
         };
         //var chart1 = new google.visualization.PieChart(document.getElementById('chart_div1'));
         //chart1.draw(data1, options1);
