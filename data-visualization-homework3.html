@@ -9,8 +9,7 @@
       google.charts.load('current', {
         packages: ['corechart']
       });
-      google.charts.setOnLoadCallback(readFile); // (1) when the javascript is read, readFile function is launched first.
-      // (2) file is read, and the data is saved in arrayData
+      google.charts.setOnLoadCallback(readFile); // (1) when the javascript is read, readFile function is launched first      // (2) file is read, and the data is saved in arrayData
       // arrayData variable is sent to the function called 'draw'
       function readFile() {
         filename = "RTA.csv";
@@ -18,7 +17,7 @@
           // read a .csv file and save the data in arrayData variable
           var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
           // send arrayData to 'draw' function
-          draw(arrayData)
+          drawChart(arrayData)
         });
       };
       google.charts.setOnLoadCallback(drawChart); 
@@ -89,7 +88,7 @@
         };*/
         //var chart1 = new google.visualization.LineChart(document.getElementById('chart_div1'));
         //chart1.draw(data1, options1);
-        var chart2 = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
         chart2.draw(data2, options2);
       }
     </script>
@@ -112,6 +111,6 @@
       <p>Data: The data is from e-Nara Indicators including http://www.index.go.kr/potal/main/EachDtlPageDetail.do?idx_cd=1681. </p>
       <p>HaEunMok.github.io/homework3.html<p>
     </div>
-    <div id="chart_div" style="max-width: 1200px; margin: auto; width: 1200px; height: 500px; padding-top: 50px"></div>
+    <div id="chart_div2" style="max-width: 1200px; margin: auto; width: 1200px; height: 500px; padding-top: 50px"></div>
   </body>
 </html>
