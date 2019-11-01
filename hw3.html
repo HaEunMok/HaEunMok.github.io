@@ -7,8 +7,9 @@
 
     <script type="text/javascript">
       google.charts.load('current', {
-        packages: ['corechart', 'Pie']
+        packages: ['corechart']
       });
+      google.charts.setOnLoadCallback(drawChart);
       google.charts.setOnLoadCallback(readFile); // (1) when the javascript is read, readFile function is launched first.
       // (2) file is read, and the data is saved in arrayData
       // arrayData variable is sent to the function called 'draw'
@@ -38,7 +39,7 @@
         };
         //var chart1 = new google.visualization.PieChart(document.getElementById('chart_div1'));
         //chart1.draw(data1, options1);
-        var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
+        var chart2 = new google.visualization.PieChart(document.getElementById('donutchart'));
         chart2.draw(data2, options2);
       }
     </script>
