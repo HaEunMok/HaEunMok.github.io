@@ -9,7 +9,7 @@
       google.charts.load('current', {
         packages: ['corechart']
       });
-      google.charts.setOnLoadCallback(draw);
+      google.charts.setOnLoadCallback(drawChart);
       google.charts.setOnLoadCallback(readFile);
 	    // (1) when the javascript is read, readFile function is launched first.
       // (2) file is read, and the data is saved in arrayData
@@ -20,10 +20,10 @@
           // read a .csv file and save the data in arrayData variable
           var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
           // send arrayData to 'draw' function
-          draw(arrayData)
+          drawChart(arrayData)
         });
       };
-      function draw(arrayData) {
+      function drawChart(arrayData) {
         // (3) convert arrayData into DataTable form
         // then, the remaining process is same to the previous chart drawing assignments.
         var data2 = new google.visualization.arrayToDataTable(arrayData);
